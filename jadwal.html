@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+        <title>Jadwal - Jadwalku</title>
+    </head>
+    <body>
+
+        <header class="navbar">
+            <a class="logo" href="index.html">Jadwal<span>ku</span></a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a class="aktif" href="jadwal.html">Jadwal</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section class="banner kecil">
+            <div class="banner-isi">
+                <div class="judul-halaman">
+                    <p class="label-kecil">Jadwalku</p>
+                    <h1>Jadwal kuliah</h1>
+                    <p>Tambah mata kuliah lewat form, hasilnya langsung muncul di tabel.</p>
+                </div>
+            </div>
+        </section>
+
+        <main class="halaman">
+            <!-- Ringkasan otomatis (diisi script.js) -->
+            <section class="statistik" aria-label="Ringkasan jadwal">
+                <div class="stat"><strong id="statMatkul">0</strong><span>Mata kuliah</span></div>
+                <div class="stat"><strong id="statJam">0 jam</strong><span>Total jam per minggu</span></div>
+                <div class="stat"><strong id="statHari">-</strong><span>Hari terpadat</span></div>
+            </section>
+
+            <div class="panel">
+                <!-- FORM -->
+                <section class="kotak form-box">
+                    <h2>Tambah jadwal</h2>
+                    <form id="formJadwal" novalidate>
+                        <label>Mata kuliah
+                            <input type="text" id="matkul" placeholder="Contoh: Pemrograman Web">
+                        </label>
+                        <label>Dosen
+                            <input type="text" id="dosen" placeholder="Contoh: Pak Andi">
+                        </label>
+                        <label>Hari
+                            <select id="hari">
+                                <option>Senin</option>
+                                <option>Selasa</option>
+                                <option>Rabu</option>
+                                <option>Kamis</option>
+                                <option>Jumat</option>
+                                <option>Sabtu</option>
+                            </select>
+                        </label>
+                        <div class="baris">
+                            <label>Mulai <input type="time" id="mulai"></label>
+                            <label>Selesai <input type="time" id="selesai"></label>
+                        </div>
+                        <label>Ruang
+                            <input type="text" id="ruang" placeholder="Contoh: Lab 2">
+                        </label>
+                        <p id="pesan" role="status"></p>
+                        <button class="tombol" type="submit">Simpan jadwal</button>
+                    </form>
+                </section>
+
+                <!-- TABEL -->
+                <section class="kotak tabel-box">
+                    <div class="bar-atas">
+                        <h2>Jadwal tersimpan</h2>
+                        <label>Hari
+                            <select id="filterHari">
+                                <option value="Semua">Semua</option>
+                                <option>Senin</option>
+                                <option>Selasa</option>
+                                <option>Rabu</option>
+                                <option>Kamis</option>
+                                <option>Jumat</option>
+                                <option>Sabtu</option>
+                            </select>
+                        </label>
+                    </div>
+
+                    <p class="status-simpan" id="statusSimpan">Belum ada data tersimpan.</p>
+
+                    <div class="scroll">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Hari</th>
+                                    <th>Jam</th>
+                                    <th>Mata kuliah</th>
+                                    <th>Dosen</th>
+                                    <th>Ruang</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody id="isiTabel"></tbody>
+                        </table>
+                    </div>
+
+                    <div class="info-bawah">
+                        <p id="total"></p>
+                        <button class="tombol-garis" id="hapusSemua" type="button">Hapus semua</button>
+                    </div>
+                </section>
+            </div>
+
+            <!-- TAMPILAN MINGGUAN -->
+            <section class="kotak">
+                <h2>Tampilan mingguan</h2>
+                <div class="scroll">
+                <div class="mingguan" id="mingguan"></div>
+                </div>
+            </section>
+        </main>
+
+            <footer>
+                <p>&copy; 2026 Jadwalku - Nama kamu - NIM kamu</p>
+            </footer>
+
+            <script src="script.js"></script>
+    </body>
+</html>

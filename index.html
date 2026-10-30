@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang ="id">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&display=swap">
+        <link rel="stylesheet" href="style.css">
+        <title>jadwal kuliah </title>
+    </head>
+
+    <body>
+        <header class="navbar">
+            <a class="logo" href="index.html">jadwal<span>ku</span></a>
+            <nav>
+                <ul>
+                    <li><a class="aktif" href="index.html">Beranda</a></li>
+                    <li><a href="jadwal.html">jadwal</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section class="banner">
+            <div class="banner-isi">
+                <section class="hero">
+                    <div class="hero-teks">
+                        <p class="label-kecil">penjadwal kuliah</p>
+                        <h1>jadwal kuliah rapi, tanpa takut bentrok</h1>
+                        <p>catat mata kuliah, dosen, jam, dan ruangan. Jadwal yang beririsan langsung ditolak sebelum kamu sadar.</p>
+                        <a href="jadwal.html" class="tombol">Buat Jadwal</a>
+                    </div>
+
+                    <div class="pratinjau" aria-hidden="true">
+                        <div class="kolom-hari"><b>Sen</b><div class="blok m" style="--c:var(--senin)"></div><div class="blok s" style="--c:var(--senin)"></div></div>
+                        <div class="kolom-hari"><b>Sel</b><div class="blok kosong-blok s"></div><div class="blok l" style="--c:var(--selasa)"></div></div>
+                        <div class="kolom-hari"><b>Rab</b><div class="blok s" style="--c:var(--rabu)"></div><div class="blok m" style="--c:var(--rabu)"></div></div>
+                        <div class="kolom-hari"><b>Kam</b><div class="blok l" style="--c:var(--kamis)"></div></div>
+                        <div class="kolom-hari"><b>Jum</b><div class="blok kosong-blok m"></div><div class="blok s" style="--c:var(--jumat)"></div></div>
+                    </div>  
+                </section>
+            </div>
+        </section>
+
+        <main class="halaman">
+            <section class="kartu-wrap">
+                <article class="kartu" style="--c:var(--senin)">
+                    <h3>Tambah Lewat From</h3>
+                    <p>Isi mata kuliah, dosen, hari, jam, dan ruangan, lalu simpan.</p>
+                </article>
+                <article class="kartu" style="--c:var(--rabu)">
+                    <h3>Lihat di tabel</h3>
+                    <p>Semua jadwal tampil urut berdasarkan hari dan jam, bisa difilterkan per hari.</p>
+                </article>
+                <article class="kartu" style="--c:var(--jumat)">
+                    <h3>Cek bentrok otomatis</h3>
+                    <p>Jadwal dengan hari dan jam yang beririsan tidak bisa disimpan.</p>
+                </article>
+            </section>
+        </main>
+        <footer>
+            <p>&copy; 2026 Jadwalku - Nama kamu - NIM kamu</p>
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,211 @@
+    /* ==========================================================
+    JADWALKU - style.css
+    Daftar isi: 1 Variabel | 2 Dasar | 3 Navbar | 4 Tombol
+                5 Beranda | 6 Halaman Jadwal | 7 Form | 8 Tabel
+                9 Tampilan Mingguan | 10 Footer | 11 Responsif
+    ========================================================== */
+
+    /* 1. VARIABEL ------------------------------------------------ */
+    :root {
+    --ink: #12303a;
+    --ink-soft: #55727a;
+    --paper: #f3f6f5;
+    --card: #ffffff;
+    --line: #e0e8e5;
+    --hl: #ffd23f;
+    --teal: #1f6f78;
+    --danger: #b3261e;
+    --radius: 14px;
+    --shadow: 0 1px 2px rgba(18, 48, 58, .06), 0 6px 18px rgba(18, 48, 58, .06);
+
+    --senin: #1f6f78;
+    --selasa: #7a4fb5;
+    --rabu: #c2571a;
+    --kamis: #2c7a3f;
+    --jumat: #b02a5b;
+    --sabtu: #4a5568;
+    }
+
+    /* 2. DASAR --------------------------------------------------- */
+    * { box-sizing: border-box; }
+
+    body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: "Bricolage Grotesque", "Segoe UI", Arial, sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.6;
+    }
+
+    a { color: inherit; }
+    :focus-visible { outline: 3px solid var(--teal); outline-offset: 2px; }
+
+    main { flex: 1; width: 100%; max-width: 1120px; margin: 0 auto; padding: 40px 24px 56px; }
+
+    h1, h2, h3 { line-height: 1.2; margin: 0; }
+    h2 { font-size: 1.15rem; }
+
+    .hari-senin { --c: var(--senin); }
+    .hari-selasa { --c: var(--selasa); }
+    .hari-rabu { --c: var(--rabu); }
+    .hari-kamis { --c: var(--kamis); }
+    .hari-jumat { --c: var(--jumat); }
+    .hari-sabtu { --c: var(--sabtu); }
+
+    /* 3. NAVBAR (Flexbox) ---------------------------------------- */
+    .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 14px 32px;
+    background: var(--ink);
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    }
+    .logo { font-weight: 800; font-size: 1.3rem; text-decoration: none; }
+    .logo span { background: var(--hl); color: var(--ink); padding: 0 7px; margin-left: 2px; border-radius: 5px; }
+    .navbar ul { display: flex; gap: 6px; list-style: none; margin: 0; padding: 0; }
+    .navbar li a { display: block; padding: 6px 16px; border-radius: 999px; text-decoration: none; transition: background .2s; }
+    .navbar li a:hover { background: rgba(255, 255, 255, .12); }
+    .navbar li a.aktif { background: var(--hl); color: var(--ink); font-weight: 700; }
+
+    /* 4. TOMBOL -------------------------------------------------- */
+    .tombol {
+    display: inline-block;
+    padding: 11px 22px;
+    font: inherit;
+    font-weight: 700;
+    color: var(--ink);
+    background: var(--hl);
+    border: 0;
+    border-radius: 10px;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition: background .2s, transform .15s;
+    }
+    .tombol:hover { background: #ffdf6b; }
+    .tombol:active { transform: scale(.98); }
+
+    .tombol-garis {
+    padding: 5px 12px;
+    font: inherit;
+    font-size: .85rem;
+    color: var(--danger);
+    background: none;
+    border: 1.5px solid #e6c4c1;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background .2s, color .2s;
+    }
+    .tombol-garis:hover { background: var(--danger); border-color: var(--danger); color: #fff; }
+
+    /* 5. BERANDA (Flexbox) --------------------------------------- */
+    .hero { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 40px; padding: 16px 0 48px; }
+    .hero-teks { flex: 1 1 340px; }
+    .hero h1 { font-size: clamp(2.1rem, 5vw, 3.2rem); margin-bottom: 16px; }
+    .hero p { max-width: 50ch; margin: 0 0 24px; color: var(--ink-soft); font-size: 1.05rem; }
+
+    .pratinjau { flex: 1 1 340px; display: flex; gap: 8px; padding: 18px; background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow); }
+    .kolom-hari { flex: 1; display: flex; flex-direction: column; gap: 8px; }
+    .kolom-hari b { text-align: center; font-size: .85rem; color: var(--ink-soft); }
+    .blok { border-radius: 6px; background: var(--c); }
+    .blok.s { height: 36px; }
+    .blok.m { height: 56px; }
+    .blok.l { height: 80px; }
+    .blok.kosong-blok { background: transparent; }
+
+    .kartu-wrap { display: flex; gap: 16px; flex-wrap: wrap; }
+    .kartu { flex: 1 1 240px; padding: 22px; background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow); border-top: 4px solid var(--c, var(--teal)); }
+    .kartu h3 { font-size: 1.05rem; margin-bottom: 6px; }
+    .kartu p { margin: 0; color: var(--ink-soft); }
+
+    /* 6. HALAMAN JADWAL ------------------------------------------ */
+    .judul-halaman { margin-bottom: 24px; }
+    .judul-halaman h1 { font-size: 2rem; margin-bottom: 4px; }
+    .judul-halaman p { margin: 0; color: var(--ink-soft); }
+
+    .statistik { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 24px; }
+    .stat { flex: 1 1 200px; display: flex; flex-direction: column; padding: 18px 22px; background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow); }
+    .stat strong { font-size: 1.8rem; line-height: 1.15; }
+    .stat span { color: var(--ink-soft); font-size: .9rem; }
+
+    .panel { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 24px; margin-bottom: 24px; }
+    .kotak { padding: 24px; background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow); }
+    .form-box { flex: 1 1 300px; }
+    .tabel-box { flex: 2 1 500px; min-width: 0; }
+    .kotak > h2 { margin-bottom: 18px; }
+
+    /* status penyimpanan */
+    .status-simpan {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 16px;
+    padding: 8px 12px;
+    font-size: .85rem;
+    color: #1d5b3a;
+    background: #e6f4ec;
+    border-radius: 8px;
+    }
+    .status-simpan::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #2c9a5b; flex-shrink: 0; }
+
+    /* 7. FORM (Flexbox) ------------------------------------------ */
+    form { display: flex; flex-direction: column; gap: 14px; }
+    label { display: flex; flex-direction: column; gap: 5px; font-weight: 600; font-size: .9rem; }
+    input, select { padding: 10px 12px; font: inherit; color: var(--ink); background: #fff; border: 1.5px solid var(--line); border-radius: 9px; transition: border-color .2s; }
+    input:focus, select:focus { border-color: var(--teal); outline: none; box-shadow: 0 0 0 3px rgba(31, 111, 120, .15); }
+    .baris { display: flex; gap: 10px; }
+    .baris label { flex: 1; min-width: 0; }
+    #pesan { min-height: 1.5em; margin: 0; font-size: .9rem; font-weight: 600; }
+    #pesan.error { color: var(--danger); }
+    #pesan.ok { color: var(--teal); }
+
+    /* 8. TABEL --------------------------------------------------- */
+    .bar-atas { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; }
+    .bar-atas label { flex-direction: row; align-items: center; gap: 8px; }
+    .bar-atas select { padding: 7px 10px; }
+
+    .scroll { overflow-x: auto; }
+    table { width: 100%; min-width: 540px; border-collapse: collapse; }
+    th, td { padding: 13px 12px; text-align: left; border-bottom: 1px solid var(--line); }
+    th { font-size: .82rem; font-weight: 600; color: var(--ink-soft); background: #f7faf9; }
+    th:first-child { border-radius: 8px 0 0 8px; }
+    th:last-child { border-radius: 0 8px 8px 0; }
+    tbody tr:hover { background: #f7faf9; }
+    td.nama-matkul { font-weight: 700; }
+    .kosong { text-align: center; color: var(--ink-soft); padding: 36px 10px; }
+
+    .lencana { display: inline-block; padding: 2px 12px; font-size: .82rem; font-weight: 700; color: #fff; background: var(--c); border-radius: 999px; }
+
+    .info-bawah { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-top: 16px; }
+    #total { margin: 0; font-size: .9rem; color: var(--ink-soft); }
+
+    /* 9. TAMPILAN MINGGUAN (Flexbox) ----------------------------- */
+    .mingguan { display: flex; gap: 12px; }
+    .hari-kolom { flex: 1 1 0; min-width: 150px; display: flex; flex-direction: column; gap: 10px; }
+    .hari-kolom h3 { padding: 8px 12px; font-size: .95rem; color: #fff; background: var(--c); border-radius: 8px; }
+    .item { padding: 10px 12px; background: #f7faf9; border-left: 4px solid var(--c); border-radius: 8px; }
+    .item b { display: block; font-size: .92rem; }
+    .item small { display: block; color: var(--ink-soft); font-size: .8rem; line-height: 1.5; }
+    .item-kosong { padding: 10px 12px; color: var(--ink-soft); font-size: .85rem; }
+
+    /* 10. FOOTER (Flexbox) --------------------------------------- */
+    footer { display: flex; justify-content: center; padding: 18px; background: var(--ink); color: #fff; font-size: .9rem; }
+    footer p { margin: 0; }
+
+    /* 11. RESPONSIF ---------------------------------------------- */
+    @media (max-width: 600px) {
+    main { padding: 28px 16px 40px; }
+    .navbar { padding: 12px 16px; }
+    .baris { flex-direction: column; }
+    .kotak { padding: 18px; }
+    }
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
